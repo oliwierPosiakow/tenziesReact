@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  background: #0a2433;
+}
+body #root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 1em;
+}
+body .App {
+  width: 100%;
+  background: white;
+  border-radius: 7px;
+}/*# sourceMappingURL=index.css.map */
