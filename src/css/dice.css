@@ -2,15 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 50px;
   height: 50px;
   font-size: 1.25rem;
   font-weight: 700;
   cursor: pointer;
+  background: white;
 }
 
 div.dice:hover {
   background: rgba(0, 0, 0, 0.05);
+}
+
+.heldBackground {
+  background: #59e390;
 }/*# sourceMappingURL=dice.css.map */
