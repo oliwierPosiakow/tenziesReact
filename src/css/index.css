@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Karla", sans-serif;
 }
 
 html, body {
@@ -16,9 +17,4 @@ body #root {
   min-width: 100vw;
   min-height: 100vh;
   padding: 1em;
-}
-body .App {
-  width: 100%;
-  background: white;
-  border-radius: 7px;
 }/*# sourceMappingURL=index.css.map */
