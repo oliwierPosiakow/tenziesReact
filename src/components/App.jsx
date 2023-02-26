@@ -83,7 +83,7 @@ function App() {
         {tenzies && <Confetti />}
         <h1 className="title">Tenzies</h1>
         <div className="info">
-          <p>Roll util all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+          <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
           <p className="best-run" style={bestStyles}>Best run: {JSON.parse(localStorage.getItem('bestRun'))} rolls</p>
         </div> 
         <div className="dice--container">
