@@ -2,10 +2,23 @@ import '../css/app.css'
 import Dice from './Dice'
 import React from 'react'
 import {nanoid} from 'nanoid'
+import Confetti from 'react-confetti'
 
 function App() {
   const [diceArr, setDiceArr] = React.useState(newDice())
   const diceElements = diceArr.map(el => <Dice key={el.id} number={el.value} isHeld={el.isHeld} handleClick={() => holdDice(el.id)}/>)
+  const [tenzies, setTenzies] = React.useState(false)
+  const [rolls, setRolls] = React.useState(0)
+
+  React.useEffect(() => {
+    const allHeld = diceArr.every(die => die.isHeld)
+    const firstVal = diceArr[0].value
+    const everyValue = diceArr.every(die => die.value === firstVal)
+    if(allHeld && everyValue){
+      setTenzies(true)
+      console.log('You win')
+    }
+  },[diceArr])
 
   function newDie(){
     return {
@@ -15,7 +28,7 @@ function App() {
     }
   }
 
-  function holdDice(id){
+  function holdDice(id){ 
     setDiceArr(prevDiceArr => {
       const newDiceArr = prevDiceArr.map(dice => {
         if(dice.id === id){
@@ -31,7 +44,14 @@ function App() {
     setDiceArr(prevDiceArr => prevDiceArr.map(dice => {
         return dice.isHeld  ? dice : newDie()
       })
-    ) 
+    )
+    setRolls(prevRolls => prevRolls + 1) 
+  }
+
+  function newGame(){
+    setTenzies(prevTenzies => !prevTenzies)
+    setDiceArr(newDice())
+    setRolls(0)
   }
 
   function newDice(){
@@ -45,14 +65,18 @@ function App() {
   return (
     <div className="App">
       <main>
+        {tenzies && <Confetti />}
         <h1 className="title">Tenzies</h1>
         <div className="info">
           <p>Roll util all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-        </div>
+        </div> 
         <div className="dice--container">
           {diceElements}
         </div>
-        <button onClick={handleRoll} className="rollDice">Roll</button>
+        <div className="rolls-counter">
+          Rolls: {rolls}
+        </div>
+        <button onClick={tenzies ? newGame : handleRoll} className="rollDice">{tenzies ? 'New Game' : 'Roll'}</button>
       </main>
     </div>
   )
