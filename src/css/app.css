@@ -36,6 +36,7 @@
 .App main .title {
   margin: 0;
   font-size: 2.4rem;
+  color: #0a2433;
 }
 .App main .info {
   padding: 0 2em;
