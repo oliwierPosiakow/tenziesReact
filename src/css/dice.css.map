@@ -1,1 +1,1 @@
-{"version":3,"sources":["../scss/dice.scss","dice.css"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,0CAAA;EACA,kBAAA;EACA,WAAA;EACA,YAAA;EACA,kBAAA;EACA,gBAAA;EACA,eAAA;EACA,iBAAA;ACCJ;;ADEA;EACI,+BAAA;ACCJ;;ADEA;EACI,mBAAA;ACCJ","file":"dice.css"}
+{"version":3,"sources":["../scss/dice.scss","dice.css"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,0CAAA;EACA,kBAAA;EACA,WAAA;EACA,YAAA;EACA,kBAAA;EACA,gBAAA;EACA,eAAA;EACA,iBAAA;ACCJ;;ADEA;EACI,qCAAA;ACCJ;;ADEA;EACI,mBAAA;ACCJ","file":"dice.css"}

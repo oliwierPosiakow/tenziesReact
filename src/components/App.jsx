@@ -10,13 +10,13 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false)
   const [rolls, setRolls] = React.useState(0)
 
+
   React.useEffect(() => {
     const allHeld = diceArr.every(die => die.isHeld)
     const firstVal = diceArr[0].value
     const everyValue = diceArr.every(die => die.value === firstVal)
     if(allHeld && everyValue){
       setTenzies(true)
-      console.log('You win')
     }
   },[diceArr])
 
@@ -25,6 +25,16 @@ function App() {
       value: Math.ceil(Math.random() * 6),
       isHeld: false,
       id: nanoid()
+    }
+  }
+
+  function saveRun(){
+    const localBest = JSON.parse(localStorage.getItem('bestRun'))
+    if(!localBest){
+      localStorage.setItem('bestRun', JSON.stringify(rolls))
+    }
+    else if(localBest && localBest > rolls){
+      localStorage.setItem('bestRun', JSON.stringify(rolls))
     }
   }
 
@@ -49,6 +59,7 @@ function App() {
   }
 
   function newGame(){
+    saveRun()
     setTenzies(prevTenzies => !prevTenzies)
     setDiceArr(newDice())
     setRolls(0)
@@ -62,6 +73,10 @@ function App() {
     return diceArr
   }
 
+  const bestStyles = {
+    display: JSON.parse(localStorage.getItem('bestRun')) ? 'block' : 'none'
+  }
+
   return (
     <div className="App">
       <main>
@@ -69,6 +84,7 @@ function App() {
         <h1 className="title">Tenzies</h1>
         <div className="info">
           <p>Roll util all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+          <p className="best-run" style={bestStyles}>Best run: {JSON.parse(localStorage.getItem('bestRun'))} rolls</p>
         </div> 
         <div className="dice--container">
           {diceElements}
