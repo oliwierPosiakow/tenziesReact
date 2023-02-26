@@ -6,7 +6,7 @@ import Confetti from 'react-confetti'
 
 function App() {
   const [diceArr, setDiceArr] = React.useState(newDice())
-  const diceElements = diceArr.map(el => <Dice key={el.id} number={el.value} isHeld={el.isHeld} handleClick={() => holdDice(el.id)}/>)
+  const diceElements = diceArr.map(el => <Dice key={el.id} number={el.value} isHeld={el.isHeld} handleClick={() => {tenzies ? '' : holdDice(el.id)}}/>)
   const [tenzies, setTenzies] = React.useState(false)
   const [rolls, setRolls] = React.useState(0)
 
