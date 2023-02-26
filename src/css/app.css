@@ -3,8 +3,9 @@
   background: #f5f5f5;
   border-radius: 7px;
   padding: 1.5em;
-  max-width: 600px;
+  max-width: 700px;
   box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
 }
 .App main {
   display: flex;
@@ -22,16 +23,23 @@
 .App main .dice--container > * {
   margin: 0 auto;
 }
+.App main .best-run {
+  margin: 0;
+}
 .App main .rollDice {
   padding: 1em 2em;
   border: none;
   background: #5035fd;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: white;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   cursor: pointer;
+}
+.App main .rollDice:active {
+  transform: translateY(1px);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
 }
 .App main .title {
   margin: 0;
@@ -46,7 +54,7 @@
   line-height: 1.3;
   letter-spacing: 0.5px;
   max-width: 410px;
-  min-width: 230px;
+  min-width: 320px;
 }
 .App main .rolls-counter {
   margin: 1em;
